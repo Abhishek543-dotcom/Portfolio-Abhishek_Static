@@ -1,0 +1,226 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+}
+
+header {
+    background-color: #87baf0;
+    padding: 20px 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+}
+nav ul li a:hover {
+    color: #ffffff;
+}
+.sign-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 500px; /* Adds space between the graduation cap and the content */
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0 0 20px 0; /* Adjusted to avoid large top margin */
+    padding-top: 100px; /* Adds space between the graduation cap and the heading */
+}
+
+h2 {
+    font-size: 2em;
+    margin: 20px 0; /* Adds space between h1 and h2 */
+}
+
+.container {
+    display: flex;
+    
+    gap: 20px;
+    margin-left:20px ;
+    margin: 20px auto;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    
+}
+
+.graduation-cap {
+    position: absolute;
+    top: 50px; /* Adjusted to reduce the overlap */
+    left: 100px;
+    height: 600px;
+    width: 600px;
+}
+
+.degrees-container {
+    margin-top:100px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.degrees-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.degree {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.degree-logo img {
+    width: 150px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.degree-details h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.degree-details p {
+    margin: 5px 0;
+}
+
+.degree-details ul {
+    padding-left: 20px;
+}
+
+.degree-details ul li {
+    margin-bottom: 5px;
+}
+
+.visit-website {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.certifications-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.certifications-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.certification-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.certification-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.certification-card img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.certification-card p {
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.certification-card span {
+    color: #777;
+    font-size: 0.9em;
+}
+.experience-section {
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #f0f8ff;
+}
+
+.experience-illustration {
+    flex: 1;
+    max-width: 600px;
+}
+
+.experience-content {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.experience-content h1 {
+    font-size: 3em;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.experience-content h2 {
+    font-size: 2em;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.experience-content p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    text-align: center; /* Center footer text */
+    padding: 20px; /* Add some padding */
+}

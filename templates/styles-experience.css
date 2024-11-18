@@ -1,0 +1,138 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+}
+
+header {
+    background-color: #87baf0;
+    padding: 20px 40px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+}
+nav ul li a:hover {
+    color: #ffffff;
+}
+.sign-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    text-align: center; /* Center footer text */
+    padding: 20px; /* Add some padding */
+}
+
+.experience-section {
+    display: flex;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #f0f8ff;
+}
+
+.experience-illustration {
+    flex: 1;
+    max-width: 600px;
+}
+
+.experience-content {
+    flex: 2;
+    padding-left: 20px;
+}
+
+.experience-content h1 {
+    font-size: 3em;
+    color: #0056b3;
+    margin-bottom: 20px;
+}
+
+.experience-content h2 {
+    font-size: 2em;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.experience-content p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.timeline-section {
+    background-color: #e0f7fa;
+    padding: 40px 20px;
+}
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.timeline-icon {
+    margin-right: 20px;
+}
+
+.timeline-icon img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-content h3 {
+    font-size: 1.5em;
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 1em;
+    color: #333;
+}
+
+.timeline-date {
+    font-size: 0.9em;
+    color: #777;
+    margin-top: 10px;
+    display: block;
+}
