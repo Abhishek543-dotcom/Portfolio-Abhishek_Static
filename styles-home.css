@@ -8,18 +8,17 @@ nav ul li a:hover {
     color: #ffffff;
 }
 header {
-    background-color: #87baf0;
+    background-color: #1e1e1e; /* Dark background */
     padding: 20px 40px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
-
+    overflow: hidden; /* Add overflow hidden to contain the animation */
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    margin-top:10px;
     display: flex;
     justify-content: flex-end;
 }
@@ -30,9 +29,32 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: #00ffff; /* Neon blue */
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative; /* Needed for the animation */
+    overflow: hidden; /* Add overflow hidden to contain the animation */
+}
+
+nav ul li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #00ffff; /* Neon blue */
+    opacity: 0.5;
+    z-index: -1;
+    transition: left 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffffff;
+}
+
+nav ul li a:hover::before {
+    left: 100%;
 }
 
 .home-section {
