@@ -8,7 +8,7 @@ nav ul li a:hover {
     color: #ffffff;
 }
 header {
-    background-color: #1e1e1e; /* Dark background */
+    background-color: #87baf0; /* Dark background */
     padding: 20px 40px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -29,7 +29,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #00ffff; /* Neon blue */
+    color: #333; 
     font-weight: bold;
     transition: color 0.3s ease, transform 0.2s ease;
     position: relative; /* Needed for the animation */
