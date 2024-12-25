@@ -32,6 +32,7 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 .home-section {
@@ -50,6 +51,14 @@ nav ul li a {
     height: auto;
 }
 
+.social-icons a img {
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
 .github-button {
     display: inline-block;
     padding: 5px 10px;
@@ -60,7 +69,12 @@ nav ul li a {
     margin-top: 20px;
     font-size: 16px;
     font-weight: bold;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.github-button:hover {
+    background-color: #005cbf; /* Darker blue on hover */
+    transform: scale(1.05);
 }
   
 .github-button:hover {
@@ -98,6 +112,22 @@ nav ul li a {
     height: auto; /* Maintain aspect ratio */
     max-width: 100%; /* Ensure it doesn't exceed its container */
 }
+
+.intro {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 footer p {
     margin: 0;
     font-size: 0.9em;
