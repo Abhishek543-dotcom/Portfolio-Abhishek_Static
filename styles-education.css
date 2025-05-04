@@ -1,67 +1,54 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8ff;
+html { scroll-behavior: smooth; }
+:root { --bg: #f0f0f0; --fg: #222; --accent: #ff5722; --transition: 0.3s ease; }
+[data-theme="dark"] { --bg: #121212; --fg: #eee; --accent: #bb86fc; }
+* { margin:0; padding:0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: sans-serif; transition: background var(--transition), color var(--transition); cursor: none; }
+
+.cursor { position: fixed; top:0; left:0; width:15px; height:15px; background: var(--accent); border-radius:50%; pointer-events:none; transform: translate(-50%,-50%); transition: transform 0.1s ease-out; z-index:9999; }
+a:hover ~ .cursor, button:hover ~ .cursor { transform: translate(-50%,-50%) scale(2); }
+
+nav { position: sticky; top:0; background: var(--bg); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ccc; z-index:10; }
+nav .site-title { font-size:1.5rem; font-weight:bold; color: var(--fg); text-decoration:none; position: relative; }
+/* Underline animation for site-title */
+nav .site-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+nav .site-title:hover::after {
+  width: 100%;
 }
 
-header {
-    background-color: #87baf0;
-    padding: 20px 40px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
+nav ul { display:flex; list-style:none; }
+nav ul li { margin-left:2rem; }
+nav ul li a { color: var(--fg); text-decoration:none; position:relative; padding:0.2rem 0; transition: color var(--transition); }
+nav ul li a::after { content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background: var(--accent); transition: width var(--transition); }
+nav ul li a:hover::after { width:100%; }
 
-}
-nav ul li a:hover {
-    color: #ffffff;
-}
-.sign-logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 80px;
-    height: auto;
-}
+.reveal { opacity:0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.reveal.visible { opacity:1; transform: translateY(0); }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: flex-end;
-}
+section { padding:4rem 2rem; max-width:1000px; margin:0 auto; }
+.toggle { position:fixed; bottom:1rem; right:1rem; background: var(--accent); border:none; padding:0.6rem 1rem; border-radius:0.3rem; color:#fff; cursor:pointer; transition: background var(--transition); }
+.toggle:hover { background:#e64a19; }
 
-nav ul li {
-    margin-left: 20px;
-}
+/* Intro Only */
+.intro-section { display:flex; align-items:flex-start; gap:2rem; flex-wrap: wrap; padding-top:4rem; }
+.intro-text { flex:1; }
+.intro-text .username { font-size:1.2rem; margin-bottom:1rem; }
+.intro-text .description { line-height:1.6; margin-bottom:1.5rem; }
+.social-icons a { margin-right:1rem; }
+.github-button { display:inline-flex; align-items:center; gap:0.5rem; margin-top:1rem; text-decoration:none; background:var(--accent); color:#fff; padding:0.5rem 1rem; border-radius:0.3rem; }
+.intro-illustration { flex:1; display:flex; justify-content:center; }
+.intro-illustration img { max-width:300px; height:auto; }
 
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-main {
-    padding: 20px;
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 500px; /* Adds space between the graduation cap and the content */
-}
-
-h1 {
-    font-size: 3em;
-    margin: 0 0 20px 0; /* Adjusted to avoid large top margin */
-    padding-top: 100px; /* Adds space between the graduation cap and the heading */
-}
-
-h2 {
-    font-size: 2em;
-    margin: 20px 0; /* Adds space between h1 and h2 */
+@media (max-width:800px) {
+  .intro-section { flex-direction:column; text-align:center; }
 }
 
 .container {
@@ -86,11 +73,11 @@ h2 {
     width: 600px;
 }
 
-.degrees-container {
-    margin-top:100px;
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+.degrees-container, .certifications-container {
+    width: 90%;  /* Increased from 80% */
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 2rem;
 }
 
 .degrees-container h2 {
@@ -101,52 +88,77 @@ h2 {
 .degree {
     display: flex;
     align-items: flex-start;
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: var(--bg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.degree:hover {
+    transform: translateY(-5px);
+}
+
+.degree-logo {
+    flex: 0 0 200px;  /* Fixed width for logo container */
+    margin-right: 2rem;
 }
 
 .degree-logo img {
-    width: 150px;
+    width: 100%;
     height: auto;
-    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.degree-details {
+    flex: 1;
 }
 
 .degree-details h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    font-size: 1.5em;
+    color: var(--accent);
+    font-size: 1.8em;
+    margin-bottom: 1rem;
 }
 
 .degree-details p {
-    margin: 5px 0;
+    font-size: 1.1em;
+    margin-bottom: 1rem;
+    color: var(--fg);
 }
 
 .degree-details ul {
-    padding-left: 20px;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
 }
 
 .degree-details ul li {
-    margin-bottom: 5px;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.degree-details ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
 }
 
 .visit-website {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent);
     color: white;
-    border-radius: 5px;
+    border-radius: 6px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    transition: transform 0.2s ease;
 }
 
-.certifications-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+.visit-website:hover {
+    transform: translateY(-2px);
 }
 
 .certifications-container h2 {
@@ -183,6 +195,7 @@ h2 {
     color: #777;
     font-size: 0.9em;
 }
+
 .experience-section {
     display: flex;
     align-items: center;
@@ -229,13 +242,28 @@ footer p {
     animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* Responsive design improvements */
+@media (max-width: 900px) {
+    .degree {
+        flex-direction: column;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .degree-logo {
+        margin: 0 auto 2rem;
+    }
+
+    .degree-details {
+        text-align: center;
+    }
+
+    .degree-details ul {
+        text-align: left;
     }
 }
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    text-align: center; /* Center footer text */
+    padding: 20px; /* Add some padding */
+  }
