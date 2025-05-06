@@ -4,7 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loading Animation</title>
-  <link rel="stylesheet" href="styles-index.css">
+<style>
+  /* Reset body styles */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa; /* Light background color */
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  
+  /* Loading container styles */
+  .loading-container {
+    text-align: center;
+  }
+  
+  /* Spinner styles */
+  .spinner {
+    width: 80px;
+    height: 80px;
+    border: 8px solid transparent;
+    border-top: 8px solid #4caf50; /* Green color */
+    border-right: 8px solid #8bc34a; /* Lighter green */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 10px;
+  }
+  
+  /* Loading text styles */
+  .loading-text {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+    animation: fadeInOut 3s ease-in-out infinite;
+  }
+  
+  /* Spinner animation */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Loading text animation */
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+</style>
   <script>
     // Redirect to home.html after 1 seconds
     setTimeout(() => {

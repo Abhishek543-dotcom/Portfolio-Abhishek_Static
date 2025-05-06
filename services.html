@@ -4,22 +4,242 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Abhishek Tiwari </title>
-    <link rel="stylesheet" href="styles-services.css">
+    <style>
+        html { scroll-behavior: smooth; }
+:root { 
+    --bg: #f0f0f0; 
+    --fg: #222; 
+    --accent: #ff5722; 
+    --transition: 0.3s ease; 
+}
+[data-theme="dark"] { 
+    --bg: #121212; 
+    --fg: #eee; 
+    --accent: #bb86fc; 
+}
+* { margin:0; padding:0; box-sizing: border-box; }
+
+body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: sans-serif;
+    transition: background var(--transition), color var(--transition);
+    cursor: none;
+}
+
+/* Cursor styling */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+    transition: transform 0.1s ease-out;
+    z-index: 9999;
+}
+
+/* Navigation styling */
+nav {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    z-index: 10;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--fg);
+    text-decoration: none;
+    position: relative;
+    padding: 0.2rem 0;
+    transition: color var(--transition);
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width var(--transition);
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Sections styling */
+section {
+    padding: 4rem 1rem; /* Reduced side padding from 2rem to 1rem */
+    max-width: 1400px; /* Increased from 1200px to 1400px */
+    margin: 0 auto;
+}
+
+.what-i-do, .cloud-infra {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Reduced from 4rem to 2rem */
+    margin-top: 2rem;
+}
+
+.illustration {
+    flex: 1;
+}
+
+.illustration img {
+    max-width: 110%; /* Increased from 100% */
+    height: auto;
+}
+
+.details {
+    flex: 1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.details h3 {
+    font-size: 2rem;
+    color: var(--fg);
+    margin-bottom: 1.5rem;
+}
+
+.icons1, .icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem; /* Increased from 1.5rem */
+    margin-bottom: 2rem;
+}
+
+.icons1 img, .icons img {
+    width: 60px; /* Increased from 50px */
+    height: 60px; /* Increased from 50px */
+    transition: transform var(--transition);
+}
+
+.icons1 img:hover, .icons img:hover {
+    transform: scale(1.1);
+}
+
+.details ul li {
+    color: var(--fg);
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.details ul li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--fg);
+    border-top: 1px solid #ccc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 800px) {
+    .content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .details ul li {
+        text-align: left;
+    }
+}
+
+/* Intro Only */
+.intro-section { display:flex; align-items:flex-start; gap:2rem; flex-wrap: wrap; padding-top:4rem; }
+.intro-text { flex:1; }
+.intro-text .username { font-size:1.2rem; margin-bottom:1rem; }
+.intro-text .description { line-height:1.6; margin-bottom:1.5rem; }
+.social-icons a { margin-right:1rem; }
+.github-button { display:inline-flex; align-items:center; gap:0.5rem; margin-top:1rem; text-decoration:none; background:var(--accent); color:#fff; padding:0.5rem 1rem; border-radius:0.3rem; }
+.intro-illustration { flex:1; display:flex; justify-content:center; }
+.intro-illustration img { max-width:300px; height:auto; }
+
+@media (max-width:800px) {
+  .intro-section { flex-direction:column; text-align:center; }
+}
+
+
+nav { position: sticky; top:0; background: var(--bg); padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #ccc; z-index:10; }
+nav .site-title { font-size:1.5rem; font-weight:bold; color: var(--fg); text-decoration:none; position: relative; }
+/* Underline animation for site-title */
+nav .site-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width var(--transition);
+}
+nav .site-title:hover::after {
+  width: 100%;
+}
+
+.toggle { position:fixed; bottom:1rem; right:1rem; background: var(--accent); border:none; padding:0.6rem 1rem; border-radius:0.3rem; color:#fff; cursor:pointer; transition: background var(--transition); }
+.toggle:hover { background:#e64a19; }
+    </style>
 </head>
 <body>
     <header>
         <nav>
+            <a href="#intro" class="site-title">Abhishek Tiwari</a>
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="education.html">Education</a></li>
                 <li><a href="experience.html">Experience</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="github.html">GitHub</a></li>
-                <li><a href="contact.html">Contact Me</a></li>
-            </ul>
-        </nav>
-        <img src="images/sign.png" alt="Your Sign" class="sign-logo">
+                <li><a href="https://github.com/Abhishek543-dotcom">GitHub</a></li>
+              </ul>
+          </nav>
     </header>
     <section class="what-i-do">
         <h2>What I Do?</h2>
@@ -36,7 +256,7 @@
                     <img src="https://spark.apache.org/images/spark-logo-trademark-back.png" alt="Spark">
                     <img src="images/hive.svg" alt="Hive">
                     <img src="https://spark.apache.org/images/delta-lake-logo.png" alt="Delta Lake">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter">
+                   <!--  <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/Jupyter_logo.svg" alt="Jupyter"> -->
                     <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI">
                 </div>
                 <ul>
@@ -58,7 +278,7 @@
             <div class="details">
                 <div class="icons">
                     <img src="images/icons8-aws-48.png" alt="AWS">
-                    <img src="images/icons8-azure-48.png" alt="Azure">
+                   <!--  <img src="images/icons8-azure-48.png" alt="Azure"> -->
                     <img src="images/icons8-terraform-48.png" alt="Terraform">
                     <img src="images/icons8-git-48.png" alt="Git">
                     <img src="images/icons8-jenkins-48.png" alt="Jenkins">
@@ -77,6 +297,29 @@
             </div>
         </div>
     </section>
+    <body data-theme="light">
+        <div class="cursor"></div>
+        <!-- Rest of the HTML -->
+        <button class="toggle">Toggle Theme</button>
+        <script>
+            const btn = document.querySelector('.toggle');
+            const root = document.documentElement;
+            const saved = localStorage.getItem('theme');
+            if(saved) root.setAttribute('data-theme', saved);
+            btn.textContent = saved==='dark'?'Light Mode':'Dark Mode';
+            btn.onclick = () => {
+                const next = root.getAttribute('data-theme')==='dark'?'light':'dark';
+                root.setAttribute('data-theme',next);
+                localStorage.setItem('theme',next);
+                btn.textContent = next==='dark'?'Light Mode':'Dark Mode';
+            };
+    
+            const cursor = document.querySelector('.cursor');
+            document.addEventListener('mousemove', e => {
+                cursor.style.top = `${e.clientY}px`;
+                cursor.style.left = `${e.clientX}px`;
+            });
+        </script>
     <footer>
         <p>&copy; 2024 Abhishek Tiwari. All rights reserved.</p>
     </footer>        
