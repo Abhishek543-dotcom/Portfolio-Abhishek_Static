@@ -527,16 +527,27 @@
     }
 
     .skill-icon {
-      width: 60px;
-      height: 60px;
+      width: 64px;
+      height: 64px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       border-radius: var(--radius-lg);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      color: var(--text-inverse);
       margin-bottom: 1.5rem;
+      overflow: hidden;
+      padding: 12px;  /* Add padding for better logo spacing */
+      box-shadow: 0 4px 12px rgba(99,102,241,0.15);
+    }
+
+    /* Add this for the logo images inside .skill-icon */
+    .skill-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+      filter: brightness(0) invert(1); /* Makes the logo white */
     }
 
     .skill-title {
@@ -985,28 +996,40 @@
   <div class="section-container">
     <div class="section-header">
       <h2 class="section-title">Experience</h2>
-      <p class="section-subtitle">Work, Internship and Volunteership</p>
+      <p class="section-subtitle">Professional Journey & Key Clients</p>
     </div>
     <div class="skills-grid">
-      <div class="skill-card">
-        <h3 class="skill-title">Data Engineer II – LTIMindtree Limited</h3>
-        <p class="skill-description">
-          <ul>
-            <li><strong>Data Engineering Expertise:</strong> Proficiency in SQL, Python, and PySpark, writing complex SQL and PL/SQL queries.</li>
-            <li><strong>Cloud Technologies:</strong> Hands-on AWS & Azure services including EMR, Redshift, Kinesis, Glue, Synapse, Data Lake, ADF, Databricks, and Power BI.</li>
-            <li><strong>API Integration:</strong> Experience with REST API integration for system interoperability.</li>
-            <li><strong>Job Scheduling:</strong> Familiar with Airflow and Databricks workflows.</li>
-            <li><strong>ETL & DevOps:</strong> Developed ETL mappings and CI/CD pipelines using Docker and Jenkins.</li>
-            <li><strong>Full Lifecycle Implementations:</strong> Completed 2+ full lifecycle implementations from design to delivery.</li>
-            <li><strong>Data Modeling:</strong> Expertise in data warehousing and dimensional modeling.</li>
-            <li><strong>Architectural Guidance:</strong> Provided cloud adoption guidance and solution design.</li>
-            <li><strong>Networking & Security:</strong> Knowledge of networking, security, and best practices in cloud.</li>
-            <li><strong>POCs & Recommendations:</strong> Conducted POCs and tool evaluations.</li>
-            <li><strong>Incident Management:</strong> Root cause analysis and documentation.</li>
-            <li><strong>Communication Skills:</strong> Clear technical communication with stakeholders.</li>
-          </ul>
+      <!-- IBM Experience Card -->
+      <div class="skill-card" style="border-left: 6px solid #6366f1;">
+        <h3 class="skill-title">Data Engineer – IBM India Pvt Limited</h3>
+        <p class="skill-description" style="margin-bottom: 0.5rem;">
+          <strong>Location:</strong> Mumbai<br>
+          <strong>Duration:</strong> June 2025 – Present
         </p>
-        <p class="skill-description"><strong>August 2021 - Present</strong> | Mumbai, India</p>
+        <div class="skill-tag" style="background: #e0e7ff; color: #4f46e5; margin-bottom: 1rem;">
+          <i class="fas fa-user-tie"></i> Client: State Bank of India <span style="font-size:0.9em;">(Onsite)</span>
+        </div>
+        <ul style="margin-bottom: 1rem;">
+          <li>Led migration of core data systems from Oracle to IBM DB2, boosting performance by 14% and reducing costs.</li>
+          <li>Architected real-time data ingestion pipeline for 150M+ records using Kafka & PySpark.</li>
+          <li>Designed scalable pipeline for new banking product, supporting 125,000+ daily active users.</li>
+        </ul>
+      </div>
+      <!-- LTIMindtree Experience Card -->
+      <div class="skill-card" style="border-left: 6px solid #f59e0b;">
+        <h3 class="skill-title">Data Engineer – LTIMindtree (L&T Group)</h3>
+        <p class="skill-description" style="margin-bottom: 0.5rem;">
+          <strong>Location:</strong> Mumbai<br>
+          <strong>Duration:</strong> August 2021 – June 2025
+        </p>
+        <div class="skill-tag" style="background: #fff7ed; color: #f59e0b; margin-bottom: 1rem;">
+          <i class="fas fa-user-tie"></i> Client: Adidas AG
+        </div>
+        <ul style="margin-bottom: 1rem;">
+          <li>Developed scalable data pipelines for 100TB+ data; automated ETL with Python & PySpark, reducing failures by 35%.</li>
+          <li>Integrated and governed data across AWS & Azure; optimized platform performance and costs.</li>
+          <li>Improved data accessibility by 40% through advanced data modeling and SQL optimization.</li>
+        </ul>
       </div>
     </div>
   </div>
