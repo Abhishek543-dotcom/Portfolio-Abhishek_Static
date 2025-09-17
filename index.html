@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Senior Data Engineer specializing in Big Data, GenAI & Cloud Solutions">
+  <meta name="keywords" content="Data Engineer, Python, PySpark, AWS, Azure, GenAI, LLM">
+  <meta name="author" content="Abhishek Tiwari">
   <title>Abhishek Tiwari - Data Engineer</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -74,9 +77,15 @@
       line-height: 1.6;
       transition: var(--transition);
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* Animated Background */
+    main {
+      flex: 1;
+    }
+
     .animated-bg {
       position: fixed;
       top: 0;
@@ -107,9 +116,6 @@
       66% { transform: translate(-20px, 20px) rotate(240deg); }
     }
 
-    
-
-    /* Glassmorphism effect */
     .glass {
       background: var(--bg-glass);
       backdrop-filter: blur(10px);
@@ -117,7 +123,6 @@
       border: 1px solid var(--border);
     }
 
-    /* Navigation */
     nav {
       position: fixed;
       top: 0;
@@ -210,6 +215,15 @@
       transform: translateY(-2px);
     }
 
+    .hamburger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
     .theme-toggle {
       background: var(--bg-glass);
       border: 1px solid var(--border);
@@ -232,7 +246,6 @@
       transform: rotate(180deg);
     }
 
-    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -248,11 +261,21 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
-      align-items: center;
+      align-items: flex-end;
+    }
+
+    #contact .hero-container {
+      grid-template-columns: 1fr;
+      justify-content: center;
     }
 
     .hero-content {
       z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .hero-badge {
@@ -302,6 +325,7 @@
       gap: 1rem;
       flex-wrap: wrap;
       animation: fadeInUp 0.8s ease 1s both;
+      justify-content: center;
     }
 
     .btn {
@@ -345,6 +369,7 @@
       display: flex;
       gap: 1rem;
       margin-top: 2rem;
+      justify-content: center;
     }
 
     .social-link {
@@ -369,11 +394,12 @@
       box-shadow: var(--shadow-lg);
     }
 
-    /* Hero Illustration */
     .hero-illustration {
       position: relative;
       z-index: 1;
       animation: fadeInRight 1s ease 0.5s both;
+      display: flex;
+      align-items: flex-end;
     }
 
     .floating-card {
@@ -385,6 +411,7 @@
       backdrop-filter: blur(10px);
       position: relative;
       overflow: hidden;
+      width: 100%;
     }
 
     .floating-card::before {
@@ -394,7 +421,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+      background: linear-gradient(90deg, var(--primary), var(--accent));
     }
 
     .card-header {
@@ -455,7 +482,6 @@
       color: var(--text-secondary);
     }
 
-    /* Skills Section */
     .skills-section {
       padding: 5rem 2rem;
       background: var(--bg-secondary);
@@ -522,8 +548,12 @@
     }
 
     .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-xl);
+      background: linear-gradient(
+        145deg,
+        var(--bg-card) 0%,
+        rgba(99, 102, 241, 0.1) 100%
+      );
+      transform: translateY(-5px) rotate3d(1, 1, 1, 2deg);
     }
 
     .skill-icon {
@@ -536,18 +566,17 @@
       justify-content: center;
       margin-bottom: 1.5rem;
       overflow: hidden;
-      padding: 12px;  /* Add padding for better logo spacing */
+      padding: 12px;
       box-shadow: 0 4px 12px rgba(99,102,241,0.15);
     }
 
-    /* Add this for the logo images inside .skill-icon */
     .skill-icon img {
       width: 100%;
       height: 100%;
       object-fit: contain;
       border-radius: 4px;
       display: block;
-      filter: brightness(0) invert(1); /* Makes the logo white */
+      filter: brightness(0) invert(1);
     }
 
     .skill-title {
@@ -566,6 +595,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
+      list-style: none;
     }
 
     .skill-tag {
@@ -577,7 +607,6 @@
       color: var(--text-secondary);
     }
 
-    /* Scroll Progress */
     .scroll-progress {
       position: fixed;
       top: 0;
@@ -589,7 +618,6 @@
       transition: width 0.1s ease;
     }
 
-    /* Loading Screen */
     .loading-screen {
       position: fixed;
       top: 0;
@@ -618,7 +646,6 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* Animations */
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -652,7 +679,29 @@
       transform: translateY(0);
     }
 
-    /* Responsive Design */
+    /* Hamburger Menu Styles */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-primary);
+    }
+
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--bg-card);
+      padding: 1rem;
+      box-shadow: var(--shadow-lg);
+      z-index: 999;
+    }
+
     @media (max-width: 1024px) {
       .hero-container {
         grid-template-columns: 1fr;
@@ -674,8 +723,24 @@
         padding: 1rem;
       }
       
+      .hero-container {
+        padding: 1rem;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hamburger {
+        display: block;
+      }
+      
       .nav-links {
         display: none;
+      }
+      
+      .nav-links.active {
+        display: flex;
       }
       
       .hero {
@@ -718,7 +783,6 @@
       }
     }
 
-    /* Utility Classes */
     .text-gradient {
       background: linear-gradient(135deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
@@ -730,364 +794,397 @@
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
+
+    .skip-nav {
+      position: absolute;
+      top: -40px;
+      left: -40px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    .skip-nav:focus {
+      top: 0;
+      left: 0;
+      width: auto;
+      height: auto;
+      padding: 1rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      border-radius: var(--radius);
+      z-index: 10000;
+      clip: auto;
+    }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Abhishek Tiwari",
+      "jobTitle": "Senior Data Engineer",
+      "url": "your-portfolio-url",
+      "sameAs": [
+        "https://github.com/Abhishek543-dotcom",
+        "https://www.linkedin.com/in/abhishek-tiwari-30289a1a7/",
+        "mailto:abhi1931480@gmail.com",
+        "https://wa.me/918960077051"
+      ]
+    }
+  </script>
 </head>
 <body data-theme="light">
-  <!-- Loading Screen -->
   <div class="loading-screen" id="loading">
     <div class="loading-spinner"></div>
   </div>
 
-  <!-- Scroll Progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- Custom Cursor -->
-  <!-- Animated Background -->
   <div class="animated-bg"></div>
 
-  <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
       <a href="#" class="logo">Abhishek Tiwari</a>
+      <button class="hamburger" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#services">Services</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="theme-toggle" id="themeToggle">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <i class="fas fa-moon"></i>
       </button>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      <div class="hero-content">
-        <div class="hero-badge">
-          <i class="fas fa-rocket"></i>
-          <span>Available for opportunities</span>
+  <a href="#main" class="skip-nav">Skip to main content</a>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-rocket"></i>
+            <span>Available for opportunities</span>
+          </div>
+          <h1 class="hero-title">Data Engineer & Analytics Expert</h1>
+          <p class="hero-subtitle">Transforming raw data into actionable insights</p>
+          <p class="hero-description">
+            Highly skilled Data Engineer with over 3 years of experience designing, developing, and governing scalable data solutions. Proficient in SQL, Python, and PySpark, with strong focus on data governance, integration, and cloud technologies.
+          </p>
+          <div class="hero-buttons">
+            <a href="https://hackerrank-resume.s3.us-east-1.amazonaws.com/uploads/24146047/MjQxNDYwNDc=.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-download"></i>
+              Download Resume
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i>
+              Get In Touch
+            </a>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/Abhishek543-dotcom" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/abhishek-tiwari-30289a1a7/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:abhi1931480@gmail.com" class="social-link" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://wa.me/918960077051" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
         </div>
-        <h1 class="hero-title">Data Engineer & Analytics Expert</h1>
-        <p class="hero-subtitle">Transforming raw data into actionable insights</p>
-        <p class="hero-description">
-          Highly skilled Data Engineer with over 3 years of experience designing, developing, and governing scalable data solutions. Proficient in SQL, Python, and PySpark, with strong focus on data governance, integration, and cloud technologies.
-        </p>
-        <div class="hero-buttons" style="justify-content: center;">
-          <a href="https://hackerrank-resume.s3.us-east-1.amazonaws.com/uploads/24146047/MjQxNDYwNDc=.pdf" class="btn btn-primary" target="_blank">
-            <i class="fas fa-download"></i>
-            Download Resume
-          </a>
-          <a href="#contact" class="btn btn-secondary">
+        <div class="hero-illustration">
+          <div class="floating-card">
+            <div class="card-header">
+              <div class="avatar">AT</div>
+              <div class="card-info">
+                <h3>Abhishek Tiwari</h3>
+                <p>Senior Data Engineer</p>
+              </div>
+            </div>
+            <div class="stats">
+              <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">4</span>
+                <span class="stat-label">Projects Completed</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">20</span>
+                <span class="stat-label">Technologies</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">100</span>
+                <span class="stat-label">Client Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section reveal" id="skills">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Expertise</h2>
+          <p class="section-subtitle">
+            Comprehensive skills in data engineering, analytics, and cloud technologies
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="skill-title">Data Engineering</h3>
+            <p class="skill-description">
+              Design and build scalable data pipelines, ETL processes, and data warehouses using modern technologies.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">Python</li>
+              <li class="skill-tag">SQL</li>
+              <li class="skill-tag">PySpark</li>
+              <li class="skill-tag">Apache Airflow</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h3 class="skill-title">Cloud Platforms</h3>
+            <p class="skill-description">
+              Expert in cloud-native data solutions with experience in AWS, Azure, and Google Cloud Platform.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">AWS</li>
+              <li class="skill-tag">Azure</li>
+              <li class="skill-tag">GCP</li>
+              <li class="skill-tag">Snowflake</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3 class="skill-title">Data Analytics</h3>
+            <p class="skill-description">
+              Advanced analytics, machine learning, and business intelligence to drive data-driven decisions.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">Pandas</li>
+              <li class="skill-tag">NumPy</li>
+              <li class="skill-tag">Tableau</li>
+              <li class="skill-tag">Power BI</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="skill-title">Data Governance</h3>
+            <p class="skill-description">
+              Ensuring data quality, compliance, and security across enterprise data ecosystems.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">Data Quality</li>
+              <li class="skill-tag">GDPR</li>
+              <li class="skill-tag">Data Lineage</li>
+              <li class="skill-tag">Security</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="skill-title">Programming</h3>
+            <p class="skill-description">
+              Proficient in multiple programming languages and frameworks for data processing and analysis.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">Python</li>
+              <li class="skill-tag">Scala</li>
+              <li class="skill-tag">Java</li>
+              <li class="skill-tag">R</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="skill-title">DevOps & Tools</h3>
+            <p class="skill-description">
+              Modern DevOps practices, CI/CD pipelines, and containerization for reliable data solutions.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">Docker</li>
+              <li class="skill-tag">Kubernetes</li>
+              <li class="skill-tag">Git</li>
+              <li class="skill-tag">Jenkins</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section reveal" id="services">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">What I Do?</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-brain"></i></div>
+            <h3 class="skill-title">Data Science & Engineering</h3>
+            <p class="skill-description">
+              Data Science and Engineering solutions powered by SQL, Spark, Delta Lake, and Python.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">Databricks</li>
+              <li class="skill-tag">Python</li>
+              <li class="skill-tag">SQL</li>
+              <li class="skill-tag">Spark</li>
+              <li class="skill-tag">Hive</li>
+              <li class="skill-tag">Delta Lake</li>
+              <li class="skill-tag">Power BI</li>
+            </ul>
+            <p class="skill-description">
+              Experience of working with data lake with ACID transactions and unified batch and streaming.<br>
+              Power of your data with interactive visualizations using Power BI.<br>
+              Optimized Big Data Processing with Azure Databricks, significantly enhancing data processing speed.
+            </p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+            <h3 class="skill-title">Cloud Infra-Architecture</h3>
+            <p class="skill-description">
+              Solutions on multiple cloud platforms with modern DevOps tools.
+            </p>
+            <ul class="skill-tags">
+              <li class="skill-tag">AWS</li>
+              <li class="skill-tag">Terraform</li>
+              <li class="skill-tag">Git</li>
+              <li class="skill-tag">Jenkins</li>
+              <li class="skill-tag">Docker</li>
+              <li class="skill-tag">Jira</li>
+              <li class="skill-tag">Databricks</li>
+            </ul>
+            <p class="skill-description">
+              Boosted Efficiency: Optimized development processes with tools like Git, Jenkins, and Spark.<br>
+              Ensured Continuity: Resolved CI/CD failures in Bitbucket and Jenkins.<br>
+              Optimized Big Data Processing: Azure Databricks deployment for scalable analytics.<br>
+              Increased User Satisfaction by improving usability and features.<br>
+              API Integration: Successfully integrated REST APIs for system interoperability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section reveal" id="experience">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">Professional Journey & Key Clients</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card" style="border-left: 6px solid #6366f1;">
+            <h3 class="skill-title">Data Engineer – IBM India Pvt Limited</h3>
+            <p class="skill-description" style="margin-bottom: 0.5rem;">
+              <strong>Location:</strong> Mumbai<br>
+              <strong>Duration:</strong> June 2025 – Present
+            </p>
+            <div class="skill-tag" style="background: #e0e7ff; color: #4f46e5; margin-bottom: 1rem;">
+              <i class="fas fa-user-tie"></i> Client: State Bank of India <span style="font-size:0.9em;">(Onsite)</span>
+            </div>
+            <ul style="margin-bottom: 1rem;">
+              <li>Led migration of core data systems from Oracle to IBM DB2, boosting performance by 14% and reducing costs.</li>
+              <li>Architected real-time data ingestion pipeline for 150M+ records using Kafka & PySpark.</li>
+              <li>Designed scalable pipeline for new banking product, supporting 125,000+ daily active users.</li>
+            </ul>
+          </div>
+          <div class="skill-card" style="border-left: 6px solid #f59e0b;">
+            <h3 class="skill-title">Data Engineer – LTIMindtree (L&T Group)</h3>
+            <p class="skill-description" style="margin-bottom: 0.5rem;">
+              <strong>Location:</strong> Mumbai<br>
+              <strong>Duration:</strong> August 2021 – June 2025
+            </p>
+            <div class="skill-tag" style="background: #fff7ed; color: #f59e0b; margin-bottom: 1rem;">
+              <i class="fas fa-user-tie"></i> Client: Adidas AG
+            </div>
+            <ul style="margin-bottom: 1rem;">
+              <li>Developed scalable data pipelines for 100TB+ data; automated ETL with Python & PySpark, reducing failures by 35%.</li>
+              <li>Integrated and governed data across AWS & Azure; optimized platform performance and costs.</li>
+              <li>Improved data accessibility by 40% through advanced data modeling and SQL optimization.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="skills-section reveal" id="education">
+      <div class="section-container">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <p class="section-subtitle">Academic background and certifications</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div style="text-align: center;">
+              <h3 class="skill-title">Thakur College of Science and Commerce, Mumbai</h3>
+              <p class="skill-description">
+                Bachelors in Computer Science<br>
+                2018 - 2021
+              </p>
+            </div>
+            <ul>
+              <li>Courses in Explainable AI, Graph ML, and Computer Vision.</li>
+              <li>Research assistantship on Graph ML algorithms and Network Science.</li>
+              <li>Multimedia department involvement – documentary films and interviews.</li>
+            </ul>
+            <a href="https://www.tcsc.edu.in/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero reveal" id="contact" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+      <div class="hero-container">
+        <div class="hero-content" style="text-align: center;">
+          <div class="hero-badge" style="justify-content: center;">
             <i class="fas fa-envelope"></i>
-            Get In Touch
-          </a>
-        </div>
-        <div class="social-links">
-          <a href="https://github.com/Abhishek543-dotcom" class="social-link" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/abhishek-tiwari-30289a1a7/" class="social-link" target="_blank">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="mailto:abhi1931480@gmail.com" class="social-link">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://wa.me/918960077051" class="social-link" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-        </div>
-      </div>
-      <div class="hero-illustration">
-        <div class="floating-card">
-          <div class="card-header">
-            <div class="avatar">AT</div>
-            <div class="card-info">
-              <h3>Abhishek Tiwari</h3>
-              <p>Senior Data Engineer</p>
-            </div>
+            <span>Let's Connect</span>
           </div>
-          <div class="stats">
-            <div class="stat-item">
-              <span class="stat-number">3+</span>
-              <span class="stat-label">Years Experience</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">4+</span>
-              <span class="stat-label">Projects Completed</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">20+</span>
-              <span class="stat-label">Technologies</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Client Satisfaction</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section class="skills-section reveal" id="skills">
-    <div class="section-container">
-      <div class="section-header">
-        <h2 class="section-title">Technical Expertise</h2>
-        <p class="section-subtitle">
-          Comprehensive skills in data engineering, analytics, and cloud technologies
-        </p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3 class="skill-title">Data Engineering</h3>
-          <p class="skill-description">
-            Design and build scalable data pipelines, ETL processes, and data warehouses using modern technologies.
+          <h2 class="hero-title" style="font-size: 2.5rem;">Ready to Build Something Amazing?</h2>
+          <p class="hero-description" style="max-width: 600px; margin: 0 auto 2rem;">
+            I'm always open to discussing new opportunities, interesting projects, or just having a chat about data engineering and technology.
           </p>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">SQL</span>
-            <span class="skill-tag">PySpark</span>
-            <span class="skill-tag">Apache Airflow</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-cloud"></i>
-          </div>
-          <h3 class="skill-title">Cloud Platforms</h3>
-          <p class="skill-description">
-            Expert in cloud-native data solutions with experience in AWS, Azure, and Google Cloud Platform.
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Azure</span>
-            <span class="skill-tag">GCP</span>
-            <span class="skill-tag">Snowflake</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3 class="skill-title">Data Analytics</h3>
-          <p class="skill-description">
-            Advanced analytics, machine learning, and business intelligence to drive data-driven decisions.
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">Pandas</span>
-            <span class="skill-tag">NumPy</span>
-            <span class="skill-tag">Tableau</span>
-            <span class="skill-tag">Power BI</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3 class="skill-title">Data Governance</h3>
-          <p class="skill-description">
-            Ensuring data quality, compliance, and security across enterprise data ecosystems.
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">Data Quality</span>
-            <span class="skill-tag">GDPR</span>
-            <span class="skill-tag">Data Lineage</span>
-            <span class="skill-tag">Security</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-code"></i>
-          </div>
-          <h3 class="skill-title">Programming</h3>
-          <p class="skill-description">
-            Proficient in multiple programming languages and frameworks for data processing and analysis.
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Scala</span>
-            <span class="skill-tag">Java</span>
-            <span class="skill-tag">R</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">
-            <i class="fas fa-cogs"></i>
-          </div>
-          <h3 class="skill-title">DevOps & Tools</h3>
-          <p class="skill-description">
-            Modern DevOps practices, CI/CD pipelines, and containerization for reliable data solutions.
-          </p>
-          <div class="skill-tags">
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">Kubernetes</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">Jenkins</span>
+          <div class="hero-buttons">
+            <a href="mailto:abhi1931480@gmail.com" class="btn btn-primary" aria-label="Send Email">
+              <i class="fas fa-envelope"></i>
+              Send Email
+            </a>
+            <a href="https://wa.me/918960077051" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Contact via WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  
-<!-- What I Do Section -->
-<section class="skills-section reveal" id="services">
-  <div class="section-container">
-    <div class="section-header">
-      <h2 class="section-title">What I Do?</h2>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-brain"></i></div>
-        <h3 class="skill-title">Data Science & Engineering</h3>
-        <p class="skill-description">
-          Data Science and Engineering solutions powered by SQL, Spark, Delta Lake, and Python.
-        </p>
-        <ul class="skill-tags">
-          <li class="skill-tag">Databricks</li>
-          <li class="skill-tag">Python</li>
-          <li class="skill-tag">SQL</li>
-          <li class="skill-tag">Spark</li>
-          <li class="skill-tag">Hive</li>
-          <li class="skill-tag">Delta Lake</li>
-          <li class="skill-tag">Power BI</li>
-        </ul>
-        <p class="skill-description">
-          Experience of working with data lake with ACID transactions and unified batch and streaming.<br>
-          Power of your data with interactive visualizations using Power BI.<br>
-          Optimized Big Data Processing with Azure Databricks, significantly enhancing data processing speed.
-        </p>
-      </div>
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fas fa-cloud"></i></div>
-        <h3 class="skill-title">Cloud Infra-Architecture</h3>
-        <p class="skill-description">
-          Solutions on multiple cloud platforms with modern DevOps tools.
-        </p>
-        <ul class="skill-tags">
-          <li class="skill-tag">AWS</li>
-          <li class="skill-tag">Terraform</li>
-          <li class="skill-tag">Git</li>
-          <li class="skill-tag">Jenkins</li>
-          <li class="skill-tag">Docker</li>
-          <li class="skill-tag">Jira</li>
-          <li class="skill-tag">Databricks</li>
-        </ul>
-        <p class="skill-description">
-          Boosted Efficiency: Optimized development processes with tools like Git, Jenkins, and Spark.<br>
-          Ensured Continuity: Resolved CI/CD failures in Bitbucket and Jenkins.<br>
-          Optimized Big Data Processing: Azure Databricks deployment for scalable analytics.<br>
-          Increased User Satisfaction by improving usability and features.<br>
-          API Integration: Successfully integrated REST APIs for system interoperability.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Experience Section -->
-<section class="skills-section reveal" id="experience">
-  <div class="section-container">
-    <div class="section-header">
-      <h2 class="section-title">Experience</h2>
-      <p class="section-subtitle">Professional Journey & Key Clients</p>
-    </div>
-    <div class="skills-grid">
-      <!-- IBM Experience Card -->
-      <div class="skill-card" style="border-left: 6px solid #6366f1;">
-        <h3 class="skill-title">Data Engineer – IBM India Pvt Limited</h3>
-        <p class="skill-description" style="margin-bottom: 0.5rem;">
-          <strong>Location:</strong> Mumbai<br>
-          <strong>Duration:</strong> June 2025 – Present
-        </p>
-        <div class="skill-tag" style="background: #e0e7ff; color: #4f46e5; margin-bottom: 1rem;">
-          <i class="fas fa-user-tie"></i> Client: State Bank of India <span style="font-size:0.9em;">(Onsite)</span>
-        </div>
-        <ul style="margin-bottom: 1rem;">
-          <li>Led migration of core data systems from Oracle to IBM DB2, boosting performance by 14% and reducing costs.</li>
-          <li>Architected real-time data ingestion pipeline for 150M+ records using Kafka & PySpark.</li>
-          <li>Designed scalable pipeline for new banking product, supporting 125,000+ daily active users.</li>
-        </ul>
-      </div>
-      <!-- LTIMindtree Experience Card -->
-      <div class="skill-card" style="border-left: 6px solid #f59e0b;">
-        <h3 class="skill-title">Data Engineer – LTIMindtree (L&T Group)</h3>
-        <p class="skill-description" style="margin-bottom: 0.5rem;">
-          <strong>Location:</strong> Mumbai<br>
-          <strong>Duration:</strong> August 2021 – June 2025
-        </p>
-        <div class="skill-tag" style="background: #fff7ed; color: #f59e0b; margin-bottom: 1rem;">
-          <i class="fas fa-user-tie"></i> Client: Adidas AG
-        </div>
-        <ul style="margin-bottom: 1rem;">
-          <li>Developed scalable data pipelines for 100TB+ data; automated ETL with Python & PySpark, reducing failures by 35%.</li>
-          <li>Integrated and governed data across AWS & Azure; optimized platform performance and costs.</li>
-          <li>Improved data accessibility by 40% through advanced data modeling and SQL optimization.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Education Section -->
-<section class="skills-section reveal" id="education">
-  <div class="section-container">
-    <div class="section-header">
-      <h2 class="section-title">Education</h2>
-      <p class="section-subtitle">Academic background and certifications</p>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div style="text-align: center;"><h3 class="skill-title">Thakur College of Science and Commerce, Mumbai</h3>
-        <p class="skill-description">
-          Bachelors in Computer Science<br>
-          2018 - 2021
-        </p></div>
-        <ul>
-          <li>Courses in Explainable AI, Graph ML, and Computer Vision.</li>
-          <li>Research assistantship on Graph ML algorithms and Network Science.</li>
-          <li>Multimedia department involvement – documentary films and interviews.</li>
-        </ul>
-        <a href="https://www.tcsc.edu.in/" class="btn btn-secondary" target="_blank">Visit Website</a>
-      </div>
-      </div>
-  </div>
-</section>
-
-
-<!-- Contact Section -->
-  <section class="hero reveal" id="contact" style="min-height: 60vh;">
-    <div class="hero-container">
-      <div class="hero-content" style="text-align: center;">
-        <div class="hero-badge">
-          <i class="fas fa-envelope"></i>
-          <span>Let's Connect</span>
-        </div>
-        <h2 class="hero-title" style="font-size: 2.5rem;">Ready to Build Something Amazing?</h2>
-        <p class="hero-description" style="max-width: 600px; margin: 0 auto 2rem;">
-          I'm always open to discussing new opportunities, interesting projects, or just having a chat about data engineering and technology.
-        </p>
-        <div class="hero-buttons" style="justify-content: center;">
-          <a href="mailto:abhi1931480@gmail.com" class="btn btn-primary">
-            <i class="fas fa-envelope"></i>
-            Send Email
-          </a>
-          <a href="https://wa.me/918960077051" class="btn btn-secondary" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-            WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer style="background: var(--bg-secondary); padding: 2rem; text-align: center; border-top: 1px solid var(--border);">
     <p style="color: var(--text-secondary);">&copy; 2025 Abhishek Tiwari. All rights reserved.</p>
   </footer>
@@ -1104,14 +1201,11 @@
       }, 1000);
     });
 
-    
-
     // Theme Toggle
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const icon = themeToggle.querySelector('i');
 
-    // Load saved theme
     const savedTheme = localStorage.getItem('theme') || 'light';
     body.setAttribute('data-theme', savedTheme);
     icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
@@ -1119,10 +1213,28 @@
     themeToggle.addEventListener('click', () => {
       const currentTheme = body.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
       body.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+
+    // Hamburger Menu
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.querySelector('i').classList.toggle('fa-bars');
+      hamburger.querySelector('i').classList.toggle('fa-times');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.querySelector('i').classList.add('fa-bars');
+        hamburger.querySelector('i').classList.remove('fa-times');
+      });
     });
 
     // Navbar Scroll Effect
@@ -1142,7 +1254,7 @@
       scrollProgress.style.width = scrolled + '%';
     });
 
-    // Smooth Scrolling for Navigation Links
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1156,7 +1268,7 @@
       });
     });
 
-    // Reveal Animation on Scroll
+    // Reveal Animation
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1174,14 +1286,13 @@
       revealObserver.observe(el);
     });
 
-    // Floating Animation for Cards
+    // Floating Animation
     const floatingCards = document.querySelectorAll('.skill-card, .floating-card');
     floatingCards.forEach((card, index) => {
       card.style.animationDelay = `${index * 0.1}s`;
       card.style.animation = `float 6s ease-in-out infinite`;
     });
 
-    // Add floating keyframes
     const style = document.createElement('style');
     style.textContent = `
       @keyframes float {
@@ -1191,7 +1302,7 @@
     `;
     document.head.appendChild(style);
 
-    // Parallax Effect for Background
+    // Parallax Effect
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
       const bg = document.querySelector('.animated-bg::before');
@@ -1200,7 +1311,7 @@
       }
     });
 
-    // Add some interactive particles
+    // Particles
     function createParticle() {
       const particle = document.createElement('div');
       particle.style.cssText = `
@@ -1214,49 +1325,32 @@
         opacity: 0.6;
         animation: particleFloat 4s linear infinite;
       `;
-      
       particle.style.left = Math.random() * 100 + 'vw';
       particle.style.top = '100vh';
-      
       document.body.appendChild(particle);
-      
-      setTimeout(() => {
-        particle.remove();
-      }, 4000);
+      setTimeout(() => particle.remove(), 4000);
     }
 
-    // Create particles periodically
     setInterval(createParticle, 2000);
 
-    // Add particle animation
     const particleStyle = document.createElement('style');
     particleStyle.textContent = `
       @keyframes particleFloat {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 0;
-        }
-        10% {
-          opacity: 0.6;
-        }
-        90% {
-          opacity: 0.6;
-        }
-        100% {
-          transform: translateY(-100vh) rotate(360deg);
-          opacity: 0;
-        }
+        0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.6; }
+        90% { opacity: 0.6; }
+        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
       }
     `;
     document.head.appendChild(particleStyle);
 
-    // Performance optimization: Reduce animations on low-end devices
+    // Performance Optimization
     if (navigator.hardwareConcurrency < 4) {
       document.body.style.setProperty('--transition', 'all 0.2s ease');
       document.body.style.setProperty('--transition-slow', 'all 0.3s ease');
     }
 
-    // Add easter egg - Konami code
+    // Konami Code
     let konamiCode = [];
     const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
     
@@ -1267,7 +1361,6 @@
       }
       
       if (konamiCode.join(',') === konamiSequence.join(',')) {
-        // Easter egg: Rainbow mode
         document.body.style.background = 'linear-gradient(45deg, #ff0000, #ff7700, #ffff00, #00ff00, #0077ff, #0000ff, #7700ff)';
         document.body.style.backgroundSize = '400% 400%';
         document.body.style.animation = 'rainbowShift 3s ease infinite';
@@ -1279,7 +1372,6 @@
       }
     });
 
-    // Add rainbow animation
     const rainbowStyle = document.createElement('style');
     rainbowStyle.textContent = `
       @keyframes rainbowShift {
@@ -1290,7 +1382,7 @@
     `;
     document.head.appendChild(rainbowStyle);
 
-    // Add typing effect to hero title
+    // Typing Effect
     function typeWriter(element, text, speed = 100) {
       let i = 0;
       element.innerHTML = '';
@@ -1304,14 +1396,13 @@
       typing();
     }
 
-    // Initialize typing effect after load
     setTimeout(() => {
       const heroTitle = document.querySelector('.hero-title');
       const originalText = heroTitle.textContent;
       typeWriter(heroTitle, originalText, 80);
     }, 1500);
 
-    // Add dynamic stats counter
+    // Stats Counter
     function animateCounter(element, target, duration = 2000) {
       let start = 0;
       const increment = target / (duration / 16);
@@ -1319,16 +1410,15 @@
       function updateCounter() {
         start += increment;
         if (start < target) {
-          element.textContent = Math.floor(start) + '+';
+          element.textContent = Math.floor(start);
           requestAnimationFrame(updateCounter);
         } else {
-          element.textContent = target + '+';
+          element.textContent = target;
         }
       }
       updateCounter();
     }
 
-    // Animate stats when they come into view
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
