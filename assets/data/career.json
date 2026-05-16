@@ -1,0 +1,84 @@
+{
+  "timeline": [
+    {
+      "company": "JP Morgan Chase & Co.",
+      "role": "Senior Data Engineer",
+      "period": "Feb 2026 — Present",
+      "location": "Mumbai, India",
+      "type": "full-time",
+      "skills": ["PySpark", "AWS Glue", "Kafka", "Snowflake", "Kubernetes", "Jenkins", "Lambda"],
+      "highlights": [
+        "Architected enterprise-scale data lake (Raw → Trusted → Refined) for Credit Card Rewards & Airport Lounge Access analytics",
+        "Built serverless event-driven ingestion via AWS Lambda + Glue + PySpark, processing millions of transactions daily",
+        "Optimized Spark partition strategies improving throughput by ~35%",
+        "Engineered Snowflake-backed refined datasets cutting analyst query time by 40%",
+        "Automated CI/CD with Jenkins + Git, slashing manual deployment effort by 60%",
+        "Containerized workloads via Kubernetes on Amazon EKS achieving 99.5% pipeline uptime"
+      ],
+      "metrics": { "label": "150M+ records/day", "value": "150M+" }
+    },
+    {
+      "company": "IBM India Pvt. Limited",
+      "role": "Data Engineer",
+      "period": "Jun 2025 — Jan 2026",
+      "location": "Mumbai, India",
+      "type": "full-time",
+      "skills": ["Apache Iceberg", "Kafka", "PySpark", "Oracle", "Delta Lake"],
+      "highlights": [
+        "Led migration of legacy Oracle DWH to Apache Iceberg-based Lakehouse, boosting query performance by 50%",
+        "Built high-throughput Kafka + PySpark streaming pipelines with sub-minute latency",
+        "Designed schema evolution framework for Iceberg eliminating breaking changes across 10+ downstream pipelines",
+        "Implemented data quality & automated reconciliation frameworks, reducing discrepancy incidents by 30%"
+      ],
+      "metrics": { "label": "150M+ daily records", "value": "150M+" }
+    },
+    {
+      "company": "LTIMindtree",
+      "role": "Data Engineer",
+      "period": "Aug 2021 — Jun 2025",
+      "location": "Noida, India",
+      "type": "full-time",
+      "skills": ["PySpark", "Delta Lake", "AWS", "Azure", "Airflow", "RAG", "Python"],
+      "highlights": [
+        "Developed distributed ETL pipelines for Adidas Global Lakehouse processing 100TB+ of retail data",
+        "Designed batch & streaming PySpark pipelines reducing reporting latency from hours to <15 minutes",
+        "Integrated multi-source datasets across AWS + Azure hybrid environments for 5+ global business units",
+        "Optimized Spark & SQL queries improving BI dashboard performance by 45%",
+        "Built GenAI-powered RAG document assistant, reducing ad-hoc data requests by 25%"
+      ],
+      "metrics": { "label": "100TB+ processed", "value": "100TB+" }
+    }
+  ],
+  "offers": [
+    { "company": "JP Morgan Chase", "year": 2026 },
+    { "company": "IBM India", "year": 2025 },
+    { "company": "LTIMindtree", "year": 2021 },
+    { "company": "Deloitte", "year": 2025 },
+    { "company": "KPMG", "year": 2025 },
+    { "company": "TCS", "year": 2025 },
+    { "company": "HSBC BANK", "year": 2025 }
+  ],
+  "insights": [
+    {
+      "title": "Why Apache Iceberg is Replacing Delta Lake in Enterprise Data Lakehouses",
+      "date": "2026-04-15",
+      "summary": "A deep dive into table format wars — why enterprises are betting on Iceberg for multi-engine interoperability, time-travel, and schema evolution at scale.",
+      "url": "https://linkedin.com/in/abhishek-tiwari",
+      "tags": ["Iceberg", "Lakehouse", "Data Engineering"]
+    },
+    {
+      "title": "Scaling Kafka Pipelines to 150M Records/Day: Lessons from JPMC",
+      "date": "2026-03-20",
+      "summary": "Practical patterns for high-throughput streaming — partition strategies, backpressure handling, and exactly-once semantics in production financial systems.",
+      "url": "https://linkedin.com/in/abhishek-tiwari",
+      "tags": ["Kafka", "Streaming", "Scale"]
+    },
+    {
+      "title": "The RAG Stack That Actually Works in Enterprise",
+      "date": "2026-02-10",
+      "summary": "Building production-ready Retrieval-Augmented Generation systems — chunking strategies, embedding models, and the retrieval-reranking pipeline that cut analyst queries by 25%.",
+      "url": "https://linkedin.com/in/abhishek-tiwari",
+      "tags": ["GenAI", "RAG", "LLM"]
+    }
+  ]
+}
